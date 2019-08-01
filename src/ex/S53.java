@@ -10,7 +10,8 @@ public class S53 {
      */
     public static double speed(double distance, double time) {
         // TODO
-        return 0;
+        double speed=(distance/time);
+        return speed;
     }
 
     /**
@@ -24,7 +25,8 @@ public class S53 {
      */
     public static double distance(int x0, int y0, int x1, int y1) {
         // TODO
-        return 0;
+    	double distance = Math.sqrt((Math.pow(y1-y0, 2)+(Math.pow(x1-x0, 2))));
+        return distance;
     }
 
     /**
@@ -37,7 +39,8 @@ public class S53 {
      */
     public static double engineCapacity(double bore, double stroke, int nr) {
         // TODO
-        return 0;
+    	double engineCapacity = Math.PI * (Math.pow(bore/2, 2)) * nr;
+       return engineCapacity;
     }
 
     // somma delle cifre in un numero
@@ -49,6 +52,20 @@ public class S53 {
      */
     public static int digitSum(int value) {
         // TODO
-        return 0;
-    }
+    	int sum = 0;
+    	
+    	while (value !=0) {
+    		sum = sum + Math.abs(value) % 10;
+    		value = value / 10;
+    		
+    	}
+        
+    	return sum;
+    	
+    	}
+    
+        
+    
+  
+    
 }

@@ -9,8 +9,10 @@ public class S63 {
         System.out.println(Integer.class);
         System.out.println(Float.class);
         System.out.println(Double.class);
-
-        @SuppressWarnings("deprecation")
+        
+        
+//        from java 9 on 
+//        @SuppressWarnings("deprecation")
 		Integer i = new Integer(1);
         Integer j = Integer.valueOf(2);
         System.out.println(i + j);

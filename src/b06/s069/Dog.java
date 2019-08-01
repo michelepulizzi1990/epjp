@@ -1,15 +1,36 @@
 package b06.s069;
 
-public class Dog extends Mammal {
-    private Tail tail;
+public class Dog {
+	private static final String DEFAULT_NAME = "???";
+			
+	private String name;
+	
+	public Dog() {
+		this.name = DEFAULT_NAME;
+	}
+	
+	public Dog(String name) {
+		this.name = name;
+		this.weight = DEFAULT_WEIGHT;
+		
+		
+	}
 
-    public Dog(int gestationDays, int tailLen) {
-        super(gestationDays);
-        this.tail = new Tail(tailLen);
-    }
+	public String getName() {
+		return name;
+	}
 
-    @Override
-    public String toString() {
-        return "Dog [" + tail + ", gestation=" + gestation + "]";
-    }
-}
+	@Override
+	public String toString() {
+		return "Dog [name=" + name + "]";
+	}
+	
+	
+	
+	}
+	
+	 
+
+	
+
+

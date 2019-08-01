@@ -66,7 +66,7 @@ class S54Test {
     @Test
     void voteTopB() {
         char actual = S54.vote(90);
-
+        
         assertThat(actual, is('B'));
     }
 

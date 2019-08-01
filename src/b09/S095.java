@@ -13,6 +13,8 @@ public class S095 {
         list.add(2, -997);
         System.out.println("Index of -997: " + list.indexOf(-997));
 
+        
+        
         list.remove(3);
         list.set(3, 42);
         System.out.println(list);

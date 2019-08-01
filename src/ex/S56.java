@@ -8,8 +8,10 @@ public class S56 {
      * @return the input reversed
      */
     public static String reverse(String s) {
-        // TODO
-        return "";
+        
+    	StringBuilder sc = new StringBuilder(s) ;    	 
+    	sc.reverse();
+		return sc.toString(); 
     }
 
     /**
@@ -19,8 +21,9 @@ public class S56 {
      * @return true if the parameter is a palindrome
      */
     public static boolean isPalindrome(String s) {
-        // TODO
-        return false;
+    	
+    	
+        return true;
     }
 
     /**
@@ -67,7 +70,16 @@ public class S56 {
      */
     public static double average(int[] data) {
         // TODO
-        return 0;
+    	int result = 0;
+    	
+    	for(int i = 0; i < data.length; i = i+1) {
+    		result = result + data[1];	
+    	}
+    	
+    	result = result / data.length;
+    	
+    	
+        return result;
     }
     
     /**

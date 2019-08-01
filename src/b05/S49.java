@@ -1,7 +1,7 @@
 package b05;
 
-public class S49 {
-    public int negate(int value) {
-        return 0;
+public class Simple {
+	public boolean isEven(int value) {
+		return true;
     }
 }

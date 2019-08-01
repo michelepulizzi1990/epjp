@@ -9,8 +9,22 @@ public class S54 {
      */
     public static String checkSign(int value) {
         // TODO
-        return "";
+    	if (value < 0) {
+    		return "negative"; 
+    	}
+    	
+    	else if (value == 0) {
+    		return "zero";
+    	}
+    	
+    	if (value > 0) {
+    		return "positive";
+    			
+    	}
+		return null;     
+        
     }
+    
     
     /**
      * Check if the parameter is odd
@@ -20,8 +34,15 @@ public class S54 {
      */
     public static boolean isOdd(int value) {
         // TODO
-        return false;
+    	if (value % 2 == 1) {
+    	
+        return true; }
+    	else {
+    		return false;
+    	}
+	
     }
+    
     
     /**
      * Convert the parameter to its English name, if it is in [0..9]
@@ -31,7 +52,30 @@ public class S54 {
      */
     public static String asWord(int value) {
         // TODO
-        return "";
+    	  switch (value) {
+          case 0:
+        	  return ("zero");
+          case 1:
+        	  return ("one");
+          case 2:
+        	  return ("two");
+          case 3:
+        	  return ("three");
+          case 4:
+        	  return ("four");
+          case 5:
+        	  return ("five");
+          case 6:
+        	  return ("six");
+          case 7:
+        	  return ("seven");
+          case 8:
+        	  return ("eight");
+          case 9:
+        	  return ("nine");
+          default:
+        	  return ("other"); }      	  
+              
     }
     
     /**
@@ -46,9 +90,21 @@ public class S54 {
      * @return a letter in [A, F]
      */
     public static char vote(double percentile) {
+    	 
         // TODO
-        return 'F';
+    	if (percentile <= 50) { return 'A'; }
+    	if (percentile >= 80) { return 'B'; }
+    	if (percentile >= 70) { return 'C'; }
+    	if (percentile >= 60) { return 'D'; }
+        return result;
+        
+        	
+        	
+        }
     }
+    
+   
+   
     
     /**
      * Leap year checker
@@ -58,6 +114,24 @@ public class S54 {
      */
     public static boolean isLeapYear(int year) {
         // TODO
+    	boolean leap = false;
+    	if(year % 4 == 0)
+    	{
+    		if (year % 100 == 0)
+    		{
+    			if (year % 400 == 0)
+    				leap = true;
+    			else 
+    				leap= false;
+    		}
+    		else
+    			leap = true;
+    		return leap;
+    		}
+    
+    	
+    	
+    	
         return false;
     }
     
@@ -73,6 +147,7 @@ public class S54 {
         int[] result = new int[3];
         
         // TODO
+        
         
         return result;
     }

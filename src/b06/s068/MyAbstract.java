@@ -1,3 +1,5 @@
+
+
 package b06.s068;
 
 public abstract class MyAbstract {

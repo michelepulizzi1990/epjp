@@ -30,10 +30,17 @@ class S55Test {
     }
 
     @Test
-    void sumEmpty() {
-        long actual = S55.sum(1003, 1002);
-
-        assertThat(actual, is(0L));
+    void sumExSimple() {
+    	try {
+            S55.sumEx(3, 1);
+            fail ("Shouldn't get to this poin");
+    	} catch (Exception e) {
+    		String expected = "first should be smaller than last";
+    		assertThat(e.getMessage(), is(expected));
+    		
+    	}
+       
+        
     }
 
     @Test
@@ -80,7 +87,9 @@ class S55Test {
 
     @Test
     void fibonacci() {
-        fail("Not yet implemented");
+        long actual = S55.Fibonacci(7);
+        
+        assertThat(actual, is(13L));
     }
 
     @Test
