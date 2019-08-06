@@ -1,0 +1,100 @@
+SQL :
+
+FUNZIONI AGGREGATE : 
+COUNT
+Restituisce il numero di righe che soddisfano la condizione specificata della clausola WHERE. Vediamo un esempio: voglio conoscere il numero di impiegati che appartengono al dipartimento produzione
+SELECT COUNT (*)
+FROM IMPIEGATO
+WHERE DIPARTIMENTO = 'PRODUZIONE';
+
+SUM
+Questa funzione somma tutti i valori di una colonna, vediamo un esempio: voglio ottenere la somma di tutti gli stipendi
+SELECT SUM(STIPENDIO)
+FROM IMPIEGATO;
+
+AVG
+Calcola la media aritmetica dei valori di una colonna. Vediamo un esempio: voglio conoscere lo stipendio medio della tabella IMPIEGATO.
+SELECT AVG(STIPENDIO)
+FROM IMPIEGATO;
+
+MAX
+Questa funzione serve a trovare il valore massimo di una colonna. Per esempio vogliamo sapere a quanto ammonta lo stipendio maggiore.
+SELECT MAX(STIPENDIO)
+FROM IMPIEGATO;
+
+MIN
+Questa funzione opera in modo analogo a MAX, ad eccezione del fatto che restituisce il valore minimo di una colonna. Per trovare il minimo stipendio della tabella IMPIEGATO si usa la seguente espressione:
+SELECT MIN(STIPENDIO)
+FROM IMPIEGATO;
+-------------------------------------------------------------------------
+FUNZIONI TEMPORALI :
+
+ADD_MONTHS
+Questa funzione aggiunge un numero di mesi a una data specificata.
+SELECT COMPITO, DATA_INIZIO,
+ADD_MONTHS(DATA_FINE,2)
+FROM PROGETTO;
+
+LAST_DAY
+Questa funzione fornisce l'ultimo giorno di un mese specificato (se il mese è di 30, 31, 29 o 28 giorni).
+SELECT DATA_FINE, LAST_DAY(DATA_FINE)
+FROM PROGETTO;
+
+MONTHS_BETWEEN
+Questa funzione serve per sapere quanti mesi sono compresi tra il mese x e il mese y.
+SELECT COMPITO, DATA_INIZIO, DATA_FINE,
+MONTHS_BETWEEN(DATA_FINE, DATA_INIZIO) DURATA
+FROM PROGETTO;
+
+NEXT_DAY
+Questafunzione imposta una nuova data, successiva a quella passatagli come primo parametro, in base al giorno della settimana passatogli come secondo parametro.
+SELECTDATA_INIZIO,
+NEXT_DAY(DATA_INIZIO, 'VENERDI')
+FROM PROGETTO;
+
+SYSDATE
+Questa funzione fornisce la data e l'ora del sistema. Vediamo degli esempi:
+SELECT DISTINCT SYSDATE
+FROM PROGETTO;
+-------------------------------------------------------------
+FUNZIONI ARITMETICHE:
+ABS
+Questa funzione calcola il valore assoluto del numero specificato. 
+SELECT ABS(A)VALORE_ASSOLUTO
+FROM NUMERI;
+---------------------------------------------------------------
+FUNZIONI DI CARATTERI:
+CHR
+Questa funzione fornisce il carattere corrispondente al codice ASCII passatogli. Vediamo un esempio:
+SELECT CODICE, CHR(CODICE)
+FROM CARATTERI;
+
+------------------------------------------------
+LE CLAUSULE SQL:
+
+WHERE
+La clausola WHERE serve per implementare delle condizioni verificabili a livello delle singole righe. Questa clausola è abbastanza semplice da usare ed è già stata utilizzata precedentemente in questo corso, vediamo un esempio:
+SELECT * 
+FROM ASSEGNI
+WHERE IMPORTO < 150000;
+
+ORDER BY
+A volte potrebbe essere necessario presentare i risultati di una query in un certo ordine, la clausola ORDER BY assolve a questo scopo. Vediamo alcuni esempi:
+SELECT *
+FROM ASSEGNI
+ORDER BY BENEFICIARIO;
+
+GROUP BY
+Questa clausola ci permette di formare dei sottoinsiemi per quelle colonne specificate. Vediamo cosa significa quanto affermato.
+SELECT BENEFICIARIO
+FROM ASSEGNI
+GROUP BY BENEFICIARIO;
+
+HAVING
+SELECT DIVISIONE, AVG(STIPENDIO)
+FROM DIPENDENTI
+HAVING AVG(STIPENDIO) > 2200000;
+
+-----------------------------------------------------------------
+JOIN
+sta ad indicare unione tra tabelle.L'importanza principale del join risiede nella possibilità che ci offre per correlare e visualizzare dati appartenenti a tabelle diverse o alla medesima tabella,
