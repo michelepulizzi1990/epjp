@@ -1,6 +1,13 @@
-SQL :
+SQL : database relazionale basato su chiavi(primary e foreign)
+
+primary key = un valore con cui io posso identificare un determinato record. Identifica una riga in una tabella.
+foreign key = una colonna della tabella che contiene dei valori, che corrispondono al valore della primary key nell'altra tabella.
+one to one = ad una primary key è associata una foreign key.
+many to many = a una riga da una parte corrispondono tante righe dall'altra e viceversa.
+one to many =
 
 FUNZIONI AGGREGATE : 
+
 COUNT
 Restituisce il numero di righe che soddisfano la condizione specificata della clausola WHERE. Vediamo un esempio: voglio conoscere il numero di impiegati che appartengono al dipartimento produzione
 SELECT COUNT (*)
@@ -95,6 +102,105 @@ SELECT DIVISIONE, AVG(STIPENDIO)
 FROM DIPENDENTI
 HAVING AVG(STIPENDIO) > 2200000;
 
------------------------------------------------------------------
+-------------------------------------------------------------------
 JOIN
-sta ad indicare unione tra tabelle.L'importanza principale del join risiede nella possibilità che ci offre per correlare e visualizzare dati appartenenti a tabelle diverse o alla medesima tabella,
+Sta ad indicare unione tra tabelle attraverso la corrispondenza tra le foreign e primary key delle tabelle.
+L'importanza principale del join risiede nella possibilità che ci offre per correlare e visualizzare dati appartenenti a tabelle diverse o alla medesima tabella,
+
+INNER JOIN = si inseriranno nella nuova tabella tutti i dati che non sono null nella foreign key. 
+OUTER JOIN = è una join in cui andiamo a prendere la foreign key anche null. Può essere left,right o full : preservare dati a desta,sinistra o tutti. 
+LEFT:Anche se abbiamo un null avremo ugualmente una corrispondenza. Quindi a sinistra mette la corrispondenza, mentre a destra mette i null.
+RIGHT: stessa cosa ma a parte inversa. Dati messi a destra e a sinistra vengono messi i null.
+SELF JOIN: duplicazione della stessa tabella.
+ON = si specificano le tabelle che si vogliono utilizzare
+
+----------------------------------------------------------------------------
+
+INSERT
+INSERT INTO table (columns…) VALUES (values…); 
+insert into regions(region_id, region_name) 
+values (11, 'Antarctica');
+creami una nuova riga in regions che avrà che avrà valore 11 e Antartica
+
+I valori NULLABLE, se NULL, sono impliciti 
+insert into regions(region_id) values (12); 
+
+UPDATE = ho una riga e la voglio modificare
+UPDATE table
+SET column = value 
+[WHERE condition];
+
+------------------------------------------------------------------------------
+CREATE TABLE
+
+DROP TABLE table_name; -- no rollback! = si elimina la tabella e non c'è più bisogno di recuperarla = mi elimina la struttura
+DELETE FROM table_name; -- DML→rollback = cancella la tabella ma si può fare il rollback 
+TRUNCATE TABLE table_name; -- no rollback! = viene svuotata la tabella e non c'è più bisogno di recuperarla
+
+
+--------------------------------------------------------------------------------
+INDICE
+
+velocizza accesso a tabella.
+B-tree : 
+create index coders_last_name_ix on coders(last_name); = crea un indice in una colonna
+create index coders_name_ix on coders(first_name, last_name); = crea un indice su due colonne 
+drop index coders_last_name_ix;  = rimuove uno o più indici
+Bitmap : 
+
+------------------------------------------------------------------------------------
+SEQUENCE
+
+Oggetto che mi genera numeri in sequenza
+Nextval: incrementa e ritorna il valore iniziale
+currval : qual è l'ultimo valore che ho generato, senza incremento
+after sequence : modificarle
+drop sequence : eliminarle
+
+------------------------------------------------------------------------------------
+VIEW
+
+E' una vista su una vera tabella, tabella fittizzia. Serve per limitarmi la vista alla tabella, accesso limitato alla tabella per quello che riguarda i dati.
+Facendo drop view la elimino.
+
+create or replace view odd_coders_view as 
+select * from coders where mod(coder_id, 2) = 1
+with read only;
+
+----------------------------------------------------------------------------------
+PL/SQL :
+
+E' un estensione di SQL per farlo diventare completo. Gli mette a disposizione per avere variabili,loop, ecc...
+Blocco : declare (mettiamo variabili locali),bigin (inizia blocco, istruzioni), exception(gestione degli errori), end(fine blocco); /(richiesta esecuzione del buffer, va solo dopo l'end)
+
+HELLO PL/SQL
+
+set serveroutput on
+begin    
+dbms_output.put_line('Hello PL/SQL'); 
+end;
+/
+
+
+IF – ELSIF – ELSE – END IF
+
+declare  
+v_a integer := 1;  --- := questo è un assegnamento
+begin 
+if v_a > 0 then
+dbms_output.put_line('v_a is positive');
+elsif v_a = 0 then   ---- a = 0 vuol dire che sta facendo un comparazione, e non un uguale di assegnamento  
+dbms_output.put_line('v_a is zero'); 
+else       
+dbms_output.put_line('v_a is negative'); 
+end if; 
+end;
+/
+
+LOOP : mettere exit per finire il loop, o continue
+WHILE e FOR: 
+WHILE LOOP finchè la condizione è vera
+
+SELECT INTO
+
+
