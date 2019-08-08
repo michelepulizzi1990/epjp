@@ -114,7 +114,7 @@ HAVING AVG(STIPENDIO) > 2200000;
 
 JOIN
 Sta ad indicare unione tra tabelle attraverso la corrispondenza tra le foreign e primary key delle tabelle. Ci da come risultato una terza tabella.
-L'importanza principale del join risiede nella possibilità che ci offre per correlare e visualizzare dati appartenenti a tabelle diverse o alla medesima tabella.
+L'importanza principale del join risiede nella possibilità di correlare e visualizzare dati appartenenti a tabelle diverse o alla medesima tabella.
 
 
 INNER JOIN = si inseriranno nella nuova tabella tutti i dati che non sono null nella foreign key. 
@@ -236,7 +236,7 @@ Prendi i valori presenti nelle colonne e mettili nelle variabili che ti dico io.
 CURSOR 
 
 Può essere visto come una collezione di righe, rappresentazione del risultato di una select. Terrà al suo interno il risultato di una select.
-La select viene fatta quando gli si dice open. Poi faccio un loop, faccio un fetch (muoviti alla riga successiva) che mi legge i dati e me li porta in due variabili locali. Poi c'è exit legata al fetch.
+La select viene fatta quando gli si dice open. Poi faccio un loop, faccio un fetch (muoviti alla riga successiva) che mi legge i dati. Poi c'è exit legata al fetch.
 
 cursor v_coder_cursor is        
 select last_name, hire_date from coders; 
