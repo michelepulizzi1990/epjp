@@ -4,7 +4,7 @@ primary key = un valore con cui io posso identificare un determinato record. Ide
 foreign key = una colonna della tabella che contiene dei valori, che corrispondono al valore della primary key nell'altra tabella.
 one to one = ad una primary key è associata una foreign key.
 many to many = a una riga da una parte corrispondono tante righe dall'altra e viceversa.
-one to many =
+one to many = 
 
 FUNZIONI AGGREGATE : 
 
@@ -33,7 +33,9 @@ MIN
 Questa funzione opera in modo analogo a MAX, ad eccezione del fatto che restituisce il valore minimo di una colonna. Per trovare il minimo stipendio della tabella IMPIEGATO si usa la seguente espressione:
 SELECT MIN(STIPENDIO)
 FROM IMPIEGATO;
+
 -------------------------------------------------------------------------
+
 FUNZIONI TEMPORALI :
 
 ADD_MONTHS
@@ -63,20 +65,26 @@ SYSDATE
 Questa funzione fornisce la data e l'ora del sistema. Vediamo degli esempi:
 SELECT DISTINCT SYSDATE
 FROM PROGETTO;
+
 -------------------------------------------------------------
+
 FUNZIONI ARITMETICHE:
 ABS
 Questa funzione calcola il valore assoluto del numero specificato. 
 SELECT ABS(A)VALORE_ASSOLUTO
 FROM NUMERI;
+
 ---------------------------------------------------------------
+
 FUNZIONI DI CARATTERI:
+
 CHR
 Questa funzione fornisce il carattere corrispondente al codice ASCII passatogli. Vediamo un esempio:
 SELECT CODICE, CHR(CODICE)
 FROM CARATTERI;
 
-------------------------------------------------
+-----------------------------------------------------------
+
 LE CLAUSULE SQL:
 
 WHERE
@@ -103,9 +111,11 @@ FROM DIPENDENTI
 HAVING AVG(STIPENDIO) > 2200000;
 
 -------------------------------------------------------------------
+
 JOIN
-Sta ad indicare unione tra tabelle attraverso la corrispondenza tra le foreign e primary key delle tabelle.
-L'importanza principale del join risiede nella possibilità che ci offre per correlare e visualizzare dati appartenenti a tabelle diverse o alla medesima tabella,
+Sta ad indicare unione tra tabelle attraverso la corrispondenza tra le foreign e primary key delle tabelle. Ci da come risultato una terza tabella.
+L'importanza principale del join risiede nella possibilità che ci offre per correlare e visualizzare dati appartenenti a tabelle diverse o alla medesima tabella.
+
 
 INNER JOIN = si inseriranno nella nuova tabella tutti i dati che non sono null nella foreign key. 
 OUTER JOIN = è una join in cui andiamo a prendere la foreign key anche null. Può essere left,right o full : preservare dati a desta,sinistra o tutti. 
@@ -113,9 +123,11 @@ LEFT:Anche se abbiamo un null avremo ugualmente una corrispondenza. Quindi a sin
 RIGHT: stessa cosa ma a parte inversa. Dati messi a destra e a sinistra vengono messi i null.
 SELF JOIN: duplicazione della stessa tabella.
 ON = si specificano le tabelle che si vogliono utilizzare
+NON EQUI JOIN =  non utilizziamo operatori di uguaglianza "="
 
 ----------------------------------------------------------------------------
 
+COMANDI DML:
 INSERT
 INSERT INTO table (columns…) VALUES (values…); 
 insert into regions(region_id, region_name) 
@@ -131,14 +143,21 @@ SET column = value
 [WHERE condition];
 
 ------------------------------------------------------------------------------
+
+COMANDI DDL:
 CREATE TABLE
 
 DROP TABLE table_name; -- no rollback! = si elimina la tabella e non c'è più bisogno di recuperarla = mi elimina la struttura
 DELETE FROM table_name; -- DML→rollback = cancella la tabella ma si può fare il rollback 
 TRUNCATE TABLE table_name; -- no rollback! = viene svuotata la tabella e non c'è più bisogno di recuperarla
 
+-------------------------------------------------------------------------------------
+
+COMANDI TC:
+COMMIT, ROLLBACK, SAVEPOINT: salvare e tornare indietro. savepoint vengono messi la dove vogliamo salvare.
 
 --------------------------------------------------------------------------------
+
 INDICE
 
 velocizza accesso a tabella.
@@ -149,6 +168,7 @@ drop index coders_last_name_ix;  = rimuove uno o più indici
 Bitmap : 
 
 ------------------------------------------------------------------------------------
+
 SEQUENCE
 
 Oggetto che mi genera numeri in sequenza
@@ -158,20 +178,22 @@ after sequence : modificarle
 drop sequence : eliminarle
 
 ------------------------------------------------------------------------------------
+
 VIEW
 
 E' una vista su una vera tabella, tabella fittizzia. Serve per limitarmi la vista alla tabella, accesso limitato alla tabella per quello che riguarda i dati.
-Facendo drop view la elimino.
+Facendo drop view la elimino. Una view può essere anche una combinazione di più tabelle.
 
 create or replace view odd_coders_view as 
 select * from coders where mod(coder_id, 2) = 1
 with read only;
 
 ----------------------------------------------------------------------------------
+
 PL/SQL :
 
 E' un estensione di SQL per farlo diventare completo. Gli mette a disposizione per avere variabili,loop, ecc...
-Blocco : declare (mettiamo variabili locali),bigin (inizia blocco, istruzioni), exception(gestione degli errori), end(fine blocco); /(richiesta esecuzione del buffer, va solo dopo l'end)
+Blocco : declare (è opzionale,mettiamo variabili locali),bigin (inizia blocco, istruzioni), exception(gestione degli errori), end(fine blocco); / (lo slash è una richiesta di esecuzione, va solo dopo l'end)
 
 HELLO PL/SQL
 
@@ -181,6 +203,7 @@ dbms_output.put_line('Hello PL/SQL');
 end;
 /
 
+-------------------------------------------------------------------------
 
 IF – ELSIF – ELSE – END IF
 
@@ -196,11 +219,142 @@ dbms_output.put_line('v_a is negative');
 end if; 
 end;
 /
+---------------------------------------------------------------------------
 
 LOOP : mettere exit per finire il loop, o continue
 WHILE e FOR: 
 WHILE LOOP finchè la condizione è vera
 
-SELECT INTO
+-------------------------------------------------------------------------------
+
+SELECT INTO = ci permette di assegnare alle variabili valori presenti nel record di una tabella
+selezioniamo le due colonne e diciamo di inserire i valori presenti in queste due colonne. 
+Prendi i valori presenti nelle colonne e mettili nelle variabili che ti dico io.
+
+-----------------------------------------------------------------------------------
+
+CURSOR 
+
+Può essere visto come una collezione di righe, rappresentazione del risultato di una select. Terrà al suo interno il risultato di una select.
+La select viene fatta quando gli si dice open. Poi faccio un loop, faccio un fetch (muoviti alla riga successiva) che mi legge i dati e me li porta in due variabili locali. Poi c'è exit legata al fetch.
+
+cursor v_coder_cursor is        
+select last_name, hire_date from coders; 
+begin  
+open v_coder_cursor; 
+loop     
+fetch v_coder_cursor        
+into v_last_name, v_hire_date;       
+exit when v_coder_cursor%notfound;
+
+dbms_output.put_line(          
+'[' || v_last_name || ', ' || v_hire_date || ']');   
+end loop;    
+close v_coder_cursor;
+end; 
+/
+
+---------------------------------------------------------------------------
+
+CURSOR in FOR LOOP = Codifica semplificata.Con "for v_cur in"(nome variabile che funziona solo nel for, funzioni svolte dal fetch all'exit) è un open cursor implicita. "end loop" è un close cursor implicita.
+v_cur (variabile di loop nel for)
+
+declare   
+cursor v_coder_cursor is    
+select last_name, hire_date from coders;
+begin  
+for v_cur in v_coder_cursor loop       
+dbms_output.put_line(            
+'[' || v_cur.last_name || ', ' || v_cur.hire_date || ']');   
+end loop; 
+end; 
+/
+
+---------------------------------------------------------------------------
+
+PROCEDURE = è una funzione che ritorna void, una funzione che non ritorna niente. P_ si usa per indicare che è un parametro. Parametro di (output) OUT è come se fosse un return value.
+ Poi si mette "is/as" e dopo inizia il bigin della procedure. Se siamo stufi della nostra procedura si può fare una "drop procedure".
+ Prima mi creo una procedura e poi la dichiaro.
+ 
+
+ create or replace procedure get_coder_salary(            --- creami una procedura o ricreamela,e poi il nome della procedura, riceve in input un coder_id e in output come risposta avrò il salario.
+ p_coder_id in coders.coder_id%type,                      --- in = il chiamante mi passa il parametro 
+ p_salary out coders.salary%type) is                      --- out = indirizzo su cui verrà scritto il parametro
+ begin
+ select salary  
+ into p_salary   
+ from coders  
+ where coder_id = p_coder_id; 
+ end get_coder_salary;
+ /
+
+ESECUZIONE PROCEDURA
+
+declare    
+v_id coders.coder_id%type := 105;  
+v_salary coders.salary%type;
+begin
+get_coder_salary(v_id, v_salary);  
+dbms_output.put_line('Salary is ' || v_salary);
+exception  
+when others then       
+dbms_output.put_line('Can''t get salary for ' || v_id);
+end;
+/
+
+-------------------------------------------------------------------------------
+
+CREATE FUNCTION = La funziona è una procedura che ritorna un valore. E' presente un "return" e "as".
+
+create or replace function get_salary(   
+p_coder_id in coders.coder_id%type) 
+return number as      
+v_salary coders.salary%type;
+begin
+ select salary   
+ into v_salary from coders   
+ where coder_id = p_coder_id;  
+ return v_salary; 
+ end get_salary;
+ /
+
+------------------------------------------------------------------------------
+
+TRIGGER
+
+Procedura eseguita automaticamente in relazione(prima,dopo o invece) all'esecuzione di un comando DML di manipolazione di dati (update, delete,insert).Il trigger si attiva ogni qual volta si da un comando DML.
+Due tipi di trigger:
+Row-level : eseguito per ogni riga coinvolta.
+Statement-level : eseguito solo una volta per tutte le righe.
+
+
+create or replace trigger salary_update
+before update of salary on coders
+for each row 
+begin   
+insert into coder_salaries values(  
+:old.coder_id, :old.salary, :new.salary);
+end salary_update;
+/
+
+Prima di fare il Trigger ci si crea una tabella per creare uno storico (dei salari in questo caso ):
+
+create table coder_salaries (  
+coder_id number(6, 0)    
+references coders(coder_id),  
+old_salary number(8, 2), 
+new_salary number(8, 2) 
+);
+
+
+
+
+
+
+
+
+
+
+
 
 
