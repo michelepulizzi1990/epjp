@@ -194,7 +194,7 @@ PL/SQL :
 
 E' un estensione di SQL per farlo diventare completo. Gli mette a disposizione per avere variabili,loop, ecc...
 Blocco : declare (è opzionale,mettiamo variabili locali),bigin (inizia blocco, istruzioni), exception(gestione degli errori), end(fine blocco); / (lo slash è una richiesta di esecuzione, va solo dopo l'end)
-
+L'operazione di assegnamento è dato da ":=". Mentre la comparazione viene fatta con l'uso di "=".
 HELLO PL/SQL
 
 set serveroutput on
@@ -205,7 +205,7 @@ end;
 
 -------------------------------------------------------------------------
 
-IF – ELSIF – ELSE – END IF
+IF – ELSIF – ELSE – END IF = ci possono essere più "else if" ma solo un "else" finale.
 
 declare  
 v_a integer := 1;  --- := questo è un assegnamento
@@ -223,6 +223,7 @@ end;
 
 LOOP : mettere exit per finire il loop, o continue
 WHILE e FOR: 
+FOR i in 1..5 loop
 WHILE LOOP finchè la condizione è vera
 
 -------------------------------------------------------------------------------
@@ -231,12 +232,21 @@ SELECT INTO = ci permette di assegnare alle variabili valori presenti nel record
 selezioniamo le due colonne e diciamo di inserire i valori presenti in queste due colonne. 
 Prendi i valori presenti nelle colonne e mettili nelle variabili che ti dico io.
 
+declare 
+v_first_name coders.first_name%type; 
+v_last_name coders.last_name%type; 
+begin
+select first_name, last_name  
+into v_first_name, v_last_name  
+from coders   
+where coder_id = 103; 
+
 -----------------------------------------------------------------------------------
 
 CURSOR 
 
 Può essere visto come una collezione di righe, rappresentazione del risultato di una select. Terrà al suo interno il risultato di una select.
-La select viene fatta quando gli si dice open. Poi faccio un loop, faccio un fetch (muoviti alla riga successiva) che mi legge i dati. Poi c'è exit legata al fetch.
+Poi faccio un loop, faccio un fetch (muoviti alla riga successiva) che mi legge i dati. Poi c'è exit legata al fetch.
 
 cursor v_coder_cursor is        
 select last_name, hire_date from coders; 
@@ -256,7 +266,7 @@ end;
 
 ---------------------------------------------------------------------------
 
-CURSOR in FOR LOOP = Codifica semplificata.Con "for v_cur in"(nome variabile che funziona solo nel for, funzioni svolte dal fetch all'exit) è un open cursor implicita. "end loop" è un close cursor implicita.
+CURSOR in FOR LOOP = Codifica semplificata ( si usa maggiormente).Con "for v_cur in"(nome variabile che funziona solo nel for, funzioni svolte dal fetch all'exit) è un open cursor implicita. "end loop" è un close cursor implicita.
 v_cur (variabile di loop nel for)
 
 declare   
@@ -323,6 +333,7 @@ begin
 TRIGGER
 
 Procedura eseguita automaticamente in relazione(prima,dopo o invece) all'esecuzione di un comando DML di manipolazione di dati (update, delete,insert).Il trigger si attiva ogni qual volta si da un comando DML.
+Quando vengono fatte modifiche in una tabella, si modifica anche l'altra.
 Due tipi di trigger:
 Row-level : eseguito per ogni riga coinvolta.
 Statement-level : eseguito solo una volta per tutte le righe.
