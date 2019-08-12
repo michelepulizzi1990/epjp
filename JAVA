@@ -1,1 +1,67 @@
+1 public class HelloWorld
+2 {
+3 public static void main(String args[])
+4 {
+5 System.out.println("Hello World!");
+6 }
+7 }
+
+PUBLIC = trattasi di uno specificatore d’accesso che rende di fatto il metodo accessibile anche al di fuori della classe in cui è stato definito.
+VOID = E’ il tipo di ritorno del metodo. Significa "vuoto" e quindi questo metodo non restituisce nessun tipo di valore. Il main non deve mai avere un tipo di ritorno diverso da void.
+CLASSE = una classe è un’astrazione per un gruppo di oggetti che condividono le stesse caratteristiche e le stesse funzionalità.
+OGGETO = un oggetto è un’istanza (ovvero, una creazione fisica) di una classe.
+VARIABILE = una variabile è una porzione di memoria in cui è immagazzinato un certo tipo di dato
+VARIABILI D'ISTANZA = una variabile è detta d’istanza se è dichiarata in una classe, ma al di fuori di un metodo.
+VARIABILI LOCALI = Una variabile è detta locale (o di stack, o automatica, o anche temporanea) se è dichiarata all’interno di un metodo. Essa smetterà di esistere quando terminerà il metodo.
+COSTRUTTORE = Un costruttore ha sempre e comunque lo stesso nome della classe in cui è dichiarato.
+PACKAGE = Un package in Java, ci permette di raggruppare classi Java logicamente correlate, in un'unica entità complessa. Fisicamente il package non è altro che una cartella del nostro sistema operativo, ma non tutte le cartelle sono package.
+
+-----------------------------------------------------
+
+DATI PRIMITIVI,Java definisce solamente otto tipi di dati primitivi:
+tipi interi: byte, short, int, long
+tipi floating point (o a virgola mobile): float e double
+tipo testuale: char
+tipo logico-booleano: boolean
+
+ ----------------------------------------------------
+ 
+ IL COMANDO IMPORT = Per utilizzare una classe della libreria all’interno di una classe che abbiamo intenzione di scrivere, bisogna prima importarla. Supponiamo di voler utilizzare la classe Date
+del package java.util. Prima di dichiarare la classe in cui abbiamo intenzione di utilizzare Date dobbiamo scrivere: import java.util.Date;
+LA CLASS STRING = In Java le stringhe,  non sono array di caratteri (char), bensì oggetti. Per esempio, possiamo istanziare una stringa nel seguente modo:
+String nome = "Mario Rossi";
+Ciò è equivalente a scrivere:
+String nome = new String("Mario Rossi");
+
+-------------------------------------------------------
+
+ARRAY = Un array è una collezione di tipi di dati primitivi, o di reference, o di altri array. Gli array permettono di utilizzare 
+un solo nome per individuare una collezione costituita da vari elementi che saranno accessibili tramite degli indici interi. In Java gli array sono, in quanto collezioni, oggetti.
+Per utilizzare un array, bisogna passare attraverso tre fasi: dichiarazione, istanza ed inizializzazione.
+Dichiarazione : char alfabeto []; oppure char [] alfabeto;
+Istanza : alfabeto = new char[21];
+Inizializzazione : bottoni [0] = new Button();
+
+ -----------------------------------------------------
+ 
+ IF-ELSE: 
+ 
+if (espressione-booleana) istruzione1;
+else istruzione2;
+per esempio:
+if (numeroLati == 3)
+System.out.println("Questo è un triangolo");
+else
+System.out.println("Questo non è un triangolo");
+Se if potremmo tradurlo con "se", else potremmo tradurlo con "altrimenti". In pratica nell’esempio, se l’espressione booleana è vera, sarà stampata la stringa "Questo è un triangolo", 
+se è falsa sarà stampata la stringa "Questo non è un triangolo".
+
+
+
+
+
+
+
+
+
 
