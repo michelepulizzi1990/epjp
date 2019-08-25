@@ -57,6 +57,9 @@ Se if potremmo tradurlo con "se", else potremmo tradurlo con "altrimenti". In pr
 se è falsa sarà stampata la stringa "Questo non è un triangolo".
 
 
+PACKAGE = Un package in Java, ci permette di raggruppare classi Java logicamente correlate, in un'unica entità complessa. 
+COSTRUTTORI = I costruttori sono metodi speciali che si trovano all’interno di ogni classe.
+
 
 
 
