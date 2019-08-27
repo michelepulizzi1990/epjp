@@ -16,5 +16,20 @@ p { … }
 [type=text]
 h1, h2, h3 { … } 
 
+-----------------------------------------------------------------------------------------------------------
+JAVASCRIPT = linguaggio interpretato
+let = per dichiarare una variabile
+console.log = si dichiara per stampare, a differenza di system.println
++= concatena
+\n = per andare a capo
+
+
+
+
+AJAX e XMLHttpRequest 
+Asynchronous JavaScript And XML = resta sulla pagina corrente
+
+JQUERY = aiuta a semplificare la gestione del DOM(struttura ad albero) di pagine HTML.
+$ è l'alias usato per la funzione JQuery(). 
 
 
