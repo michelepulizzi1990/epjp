@@ -1,0 +1,20 @@
+CSS = separazione tra contenuto (HTML) e presentazione (CSS). Lo stile è definito da regole, divise in SELETTORE (a quali elementi si applica la regola),
+e DICHIARAZIONI (come devono essere stilati gli elementi).
+
+-selettore "p"
+-blocco di dichiarazione "{". Tra le parentesi graffe inserisco tutte le regole che voglio applicare.
+
+COLOR = input {color: red;}
+id = è singolo
+class = formato da più elementi
+
+
+SELETTORI = selezione degli elementi nella pagina a cui applicare la regola.
+p { … }
+.className { … } 
+#idName { … } 
+[type=text]
+h1, h2, h3 { … } 
+
+
+
