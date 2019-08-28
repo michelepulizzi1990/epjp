@@ -1,5 +1,5 @@
-CSS = separazione tra contenuto (HTML) e presentazione (CSS). Lo stile è definito da regole, divise in SELETTORE (a quali elementi si applica la regola),
-e DICHIARAZIONI (come devono essere stilati gli elementi).
+CSS = File di testo. separazione tra contenuto (HTML) e presentazione (CSS). Lo stile è definito da regole, divise in SELETTORE 
+(a quali elementi si applica la regola),e DICHIARAZIONI (come devono essere stilati gli elementi).
 
 -selettore "p"
 -blocco di dichiarazione "{". Tra le parentesi graffe inserisco tutte le regole che voglio applicare.
@@ -16,20 +16,49 @@ p { … }
 [type=text]
 h1, h2, h3 { … } 
 
------------------------------------------------------------------------------------------------------------
-JAVASCRIPT = linguaggio interpretato
+------------------------------------------------------------------------------------------------------------------------------
+JAVASCRIPT:
+
+Linguaggio interpretato, di scripting. Aggiunge funzionalità alla coppia HTML-CSS. Serve a rendere dinamica la pagina. Metto della 
+logica alla pagina.
 let = per dichiarare una variabile
 console.log = si dichiara per stampare, a differenza di system.println
 += concatena
 \n = per andare a capo
+ci sono operazioni aritmetici,di assegnamento, di confronto
 
 
 
 
-AJAX e XMLHttpRequest 
-Asynchronous JavaScript And XML = resta sulla pagina corrente
+AJAX e XMLHttpRequest:
 
-JQUERY = aiuta a semplificare la gestione del DOM(struttura ad albero) di pagine HTML.
-$ è l'alias usato per la funzione JQuery(). 
+Asynchronous JavaScript And XML = Approccio per sviluppare applicazioni Web. Permette alle pagine web di cambiare il proprio contenuto 
+senza effettuare refresh dell’intera pagina.
+
+
+JQUERY :
+
+Libreria javascript. Aiuta a semplificare la gestione del DOM(struttura ad albero) di pagine HTML.$ è l'alias usato per la funzione JQuery() 
+$(document).ready(function() {....)} ---- il codice al suo interno viene eseguito quando la pagina viene caricata.
+Evento ready = generato dal browser, quando l'HTML è stato caricato.
+Selezione di elementi es. = tag:$('textarea') --- vammi a prendere tutti gli elementi textarea.
+Creazione di elementi : creazione di un elemento, arricchirlo e inserirlo nel documento. 
+Esempio: $('<div>Hello</div>').css({color: 'red'}).appendTo('body');
+
+
+BOOTSTRAP:
+
+Framework, ci da un ordine di come lavorare. Due tipi di container: container, lunghezza fissa per ogni breakpoint 
+container-fluid, è sempre il 100% del viewport.
+
+
+
+
+
+
+
+
+
+
 
 
