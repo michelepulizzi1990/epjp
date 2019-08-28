@@ -1,5 +1,5 @@
-HTML = linguaggio che descrive come rappresentare pagine web. E' fatto per visualizzare una pagina. Il rendering è come viene realmente mostrata una pagina. 
-Struttura di una pagina HTML è un albero (DOM), ogni nodo è un elemento.
+HTML = linguaggio che descrive come rappresentare pagine web. E' fatto per visualizzare una pagina. Il rendering è come viene realmente
+mostrata una pagina. Struttura di una pagina HTML è un albero (DOM), ogni nodo è un elemento.
 
 <!DOCTYPE html>
 <!-- my hello page -->
@@ -25,8 +25,9 @@ Per commentare si scrive <!-- commento -->
 title: il titolo della pagina, solitamente mostrato dal browser nella barra del titolo: <title>Hello</title>
 meta: informazioni aggiuntive, si consiglia l’uso di charset : <meta charset="utf-8"
 
-
-h1...h6 = titoli di parti del testo. Il numero sta ad indicare la dimensione del testo.
+elementi:
+h1...h6 = titoli di parti del testo. Il numero sta ad indicare la dimensione del testo. h1 è quella principale e poi si va a scendere 
+via via che cresce il numero.
 p = paragrafo per la suddivisione del testo.
 b = grassetto 
 i = corsivo
@@ -39,6 +40,7 @@ LISTE
 ol = lista ordinata (numerata)
 ul = lista non ordinata (con pallino)
 dl = lista di definizioni
+li = list item : voce della lista
 
 LISTA NON ORDINATA, CON PALLINO
 
@@ -57,9 +59,13 @@ LISTA ORDINATA, CON NUMERI
 <ol>
 
 
+<div> = elemento che indica un blocco di codice, mi occupa tutta la riga, una o più righe.
+<span> = contenuto in un div, non occupa tutta la riga. Non causa la terminazione della riga.
+
 
 LINK
-<a href = "http...."> testo </a>       serve per caricare un video inserendo l'apposito LINK, e il testo successivo si mette per fare un eventuale descrizione.
+<a href = "http...."> testo </a>       serve per caricare un video inserendo l'apposito LINK, e il testo successivo si mette per fare 
+un eventuale descrizione.
 </a> per chiudere
 
 IMMAGINI
@@ -69,7 +75,8 @@ title = testo aggiuntivo mostrato quando il puntatore passa sull'immagine
 height,width = dimensioni dell'immagine
 
 <img src= "link dell'immagine" width = "10" eight = "100">      caricherà l'immagine del link con le dimensioni da noi stabilite
-<img src= "foto da remoto salvata">      caricherà la foto salvata da remoto con dimensione grande visto che non abbiamo dato delle dimensioni
+<img src= "foto da remoto salvata">      caricherà la foto salvata da remoto con dimensione grande visto che non abbiamo dato delle 
+dimensioni
 <img src= "./foto che abbiamo nella cartella a sinistra">
 
 
