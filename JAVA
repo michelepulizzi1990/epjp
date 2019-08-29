@@ -62,7 +62,7 @@ COSTRUTTORI = I costruttori sono metodi speciali che si trovano all’interno di
 
 
 
-
+POLIMORFISMO = Proprietà dell'oggetto. Un oggetto può essere utilizzato come se fosse istanza di una classe piuttosto che un altra. 
 
 
 
