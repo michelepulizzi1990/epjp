@@ -15,7 +15,7 @@ VARIABILI D'ISTANZA = una variabile è detta d’istanza se è dichiarata in una
 VARIABILI LOCALI = Una variabile è detta locale (o di stack, o automatica, o anche temporanea) se è dichiarata all’interno di un metodo. Essa smetterà di esistere quando terminerà il metodo.
 COSTRUTTORE = Un costruttore ha sempre e comunque lo stesso nome della classe in cui è dichiarato.
 PACKAGE = Un package in Java, ci permette di raggruppare classi Java logicamente correlate, in un'unica entità complessa. Fisicamente il package non è altro che una cartella del nostro sistema operativo, ma non tutte le cartelle sono package.
-
+PARAMETRO= variabile che passiamo all'interno del metodo
 -----------------------------------------------------
 
 DATI PRIMITIVI,Java definisce solamente otto tipi di dati primitivi:
