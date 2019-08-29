@@ -1,2 +1,9 @@
-# TOMCAT
-Genera la response in java girandola a HTML  e Oracle. Tomcat usa JEE, java edition. 
+TOMCAT :
+
+Genera la response in java girandola a HTML  e Oracle. Tomcat usa JEE, java edition. Servlet ha lo scopo di gestire la request e le response. 
+Tomcat gestisce il ciclo vita delle servlet.
+Get = tutto è sull'indirizzo, i parametri sono passati come parte della request URL.
+Post = i parametri sono passati come message body (o payload).
+servlet = classe che mi implementa la classe httpservlet,gestisce l'interazione con il metodo HTTP.
+JSP= generazione di un documento HTML nella response.
+
