@@ -1,0 +1,89 @@
+JAVA = Il linguaggio Java è un linguaggio di programmazione, orientato ad oggetti, contentente strumenti e librerie, progettato per
+eseguire codice tramite compilazione in bytecode prima e interpretazione poi da parte di una JVM.
+
+
+-CLASSE = una classe è un astrazione indicante una serie di oggetti che condividono le stesse caratteristiche e funzionalità
+-OGGETTO = è un istanza,ovvero una creazione specifica, di una classe
+-METODO = sinonimo di azione, affichè un programma esegua un istruzione deve contenere dei metodi. Una classe senza metodo "main" non può
+essere eseguita. Senza metodi gli oggetti non possono comunicare fra di loro.
+-VARIABILE = è una porzione di memoria in cui è immagazzinato un certo tipo di dato
+-VARIABILE DI ISTANZA = se è dichiarata in una classe, ma al di fuori di un metodo
+-VARIABILE LOCALE = se è dichiarata all'interno di un metodo. Essa smetterà di esistere quando terminerà il metodo.
+-PARAMETRI = sono le variabili dichiarate all'interno delle parentesi tonde nella dichiarazione di un metodo.
+-COSTRUTTORE = è un metodo che ha lo stesso nome della classe, non ha tipo di ritorno, è presente in ogni classe.
+-PACKAGE = permette di raggruppare in un'unica entità complessa classi java. Non è altro che una cartella.
+
+
+
+//commento su una sola riga
+/*
+questo è un commento
+su più righe
+*/
+
+
+TIPI DI DATI PRIMITIVI :
+-tipi interi = byte, short, int, long = possono immagazzinare numeri interi positivi o negativi
+-tipi floating point = float , double = tipi di dati a virgola mobile
+-tipo testuale = char
+-tipo logico-booleano = boolean = true e false
+
+
+IMPORT= per utilizzare una classe della libreria bisogna prima importarla. Supponiamo di voler utilizzare la classe Date del package 
+java.util, dobbiamo scrivere : import.java.util.Date;
+Per importante tutte le classi del package si scrive : import.java.util.*;
+
+
+La classe STRING = le stringhe non sono array di caratteri(char), ma oggetti. Si può instanziare una stringa nei seguenti modi : 
+String nome = new String ("mario rossi"); o String nome = "mario rossi";
+
+------------------------------------------------------------------------------
+
+ARRAY = collezione di dati primitivi, o di reference o di altri array. Per utilizzare gli arrayi ci sono tre fasi : dichiarazione,
+creazione ed inizializzazione.
+Dichiarazione : char alfabeto [];
+Creazione : alfabeto = new char [21];
+Inizializzazione : alfabeto [0]='a';
+alfabeto [1]='b';
+alfabeto [2]='c';
+Java ci da la possibilità di eseguire tutti e tre i passi per creare un array tramite un unica sintassi :
+char alfabeto []= {'a','b','c',....};
+
+LENGHT = variabile che restituisce la lunghezza dell'array : alfabeto.lenght e mi restituirà 21
+
+---------------------------------------------------------------------
+
+IF = testa un espressione booleana e a seconda che risulti vera o falsa, esegue un certo blocco di istruzioni oppure no. 
+if (numerodilati ==3)
+System.out.println ("Questo è un triangolo");
+else
+Syste.out.println ("Questo non è un triangolo");
+
+------------------------------------------------------------------
+
+WHILE = questo ciclo permette di iterare uno statement tante volte fino a quando una certa condizione booleana è verificata.
+public class...
+public static void.....
+int i=1;
+while (i<=10) {
+System.out.println (i);
+i++;
+}
+viene dichiarata e inizializzata a 1 la variabile i,poi inizia il cilo e viene stampato i fino a quando il suo valore non supera 10.
+Stampami i fino a quando il suo valore risulta sempre minore o uguale a 10. Quando arriverà a 11 il blocco di codice non verrà eseguito
+e l'espressione booleana non verrà verificata.
+
+--------------------------------------------------------------------
+
+FOR = public class.... {
+public static void.... {
+for (int n=10; n>0; n--) {
+system.out.println(n);
+}
+}
+}
+stampami i primi dieci numeri partendo da 10 fino ad arrivare a 1
+
+---------------------------------------------------------------------
+
+
