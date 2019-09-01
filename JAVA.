@@ -86,4 +86,88 @@ stampami i primi dieci numeri partendo da 10 fino ad arrivare a 1
 
 ---------------------------------------------------------------------
 
+SWITH = è alternativa al costrutto IF
+BREAK = provoca l'immediata uscita dal costrutto
+public class swithstagione
+public static void.....{
+int mese = 4
+string stagione;
+switch (mese) {
+case 12:
+case 1:
+case 2:
+stagione = "inverno";
+break;
+
+----------------------------------------------------------------------
+
+MODIFICATORI D'ACCESSO:
+PUBLIC = un membro dichiarato pubblico sarà accessibile da una qualisasi classe situata in qualsiasi package. Una classe dichiarata
+pubblica sarà anch'essa visibile da un qualsiasi package.
+PRIVATE =  restringe la visibilità di un membro di una classe alla classe stessa.
+THIS = reference implicito all'oggetto corrente
+ABSTRACT = un metodo abstract non implementa un proprio blocco di codice, è privo di comportamento, non definisce parentesi graffe
+ma termina con un punto e virgola.
+---------------------------------------------------------------------
+
+ERDEITARIETA'= è la caratteristica che mette in relazione di estensibilità più classi che hanno caratteristiche comuni. Il risultato è 
+la possibilità di gestire insiemi di classi collettivamente,giacchè accomunate dalle stesse caratteristiche:
+
+public class libro{
+public string autore;
+public string titolo;
+public int npagine;
+public int prezzo;
+}
+
+public class librosujava{
+public string autore;
+public string titolo;
+public int npagine;
+public int prezzo;
+public final string ARGOMENTO_TRATTATO= "java";
+}
+
+notiamo che libro e librosujava rappresentano due concetti in relazione tra loro, dichiarano campi in comune.L'ereditarietà permette di 
+mettere in relazione di estensione le due classi. Diremo che librosujava è sottoclasse di libro, e libro è superclass di librosujava.
+
+public class librosujava extends libro {
+public final string ARGOMENTO_TRATTATO="java";
+....
+}
+
+----------------------------------------------------------------------------
+
+POLIMORFISMO PER METODI = ci permetterù di utilizzare lo stesso nome per metodi differenti, si realizza in due forme : per OVERLOAD(sovraccarico)
+e OVERRIDE(riscrittura).
+
+OVERLOAD = si utilizza lo stesso nome per metodi diversi:
+
+public class aritmetica {
+public int somma(int a, int b) {
+return a+b;
+}
+public float somma(float a, int b) {
+return a+b;
+}
+public float somma(int a, float b) {
+return a+b;
+}
+
+In questa classe ci sono 3 metodi che hanno lo stesso nome e svolgono somme, ma in modo differente.
+
+OVERRIDE=
+
+
+
+
+
+
+
+
+
+
+
+
+
 
