@@ -34,7 +34,10 @@ JAVA BEAN, requisiti :
   }
   
   JSP EXPRESSION LENGUAGE : più leggibile. Non ci saranno più scriptlet.
+  getparameter = ritorna il valore del parametro come string
+  getparametervalues = ritorna i valori come array di string
   
+  JSTL = 
   
   
   
