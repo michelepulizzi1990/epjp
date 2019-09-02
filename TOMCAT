@@ -4,6 +4,39 @@ Genera la response in java girandola a HTML  e Oracle. Tomcat usa JEE, java edit
 Tomcat gestisce il ciclo vita delle servlet.
 Get = tutto è sull'indirizzo, i parametri sono passati come parte della request URL.
 Post = i parametri sono passati come message body (o payload).
-servlet = classe che mi implementa la classe httpservlet,gestisce l'interazione con il metodo HTTP.
-JSP= generazione di un documento HTML nella response.
+servlet = fanno lavoro di logica. Classe per gestire il ciclo request e response, che mi implementa la classe httpservlet,gestisce l'interazione con il metodo HTTP.
+webservlet = mi gestisce la risposta
+JSP= generazione di un documento HTML nel codice java. E' più leggibile.
+SESSION = in HTTP le connessioni sono stateless, cioè senza memoria. Serve per simulare il fatto di avere una connessione continua per mezzo
+di cookie (file in cui ci si mettono delle informazioni). Nella session mettiamo come attributi delle variabili di cui voglio tenere traccia
+di quello che sto facendo.
 
+ELEMENTI JSP :
+
+direttiva <%@ e il corpo
+commento <%--.....--%>
+dichiarazione <%!.....%>
+scriplet <%.....%>
+espressione <%=......%>    vai a prendere quello che ti metto qui dentro e stampamelo, senza ; finale.
+
+JAVA BEAN, requisiti :
+
+  class bean {
+  private int a; 
+  //get
+  //setter
+  //costruttore defoult
+  public int get A() {
+  return this.a;
+  }
+  public voit set A(int a) {
+  this.a=a;
+  }
+  
+  JSP EXPRESSION LENGUAGE : più leggibile. Non ci saranno più scriptlet.
+  
+  
+  
+  
+  
+  
